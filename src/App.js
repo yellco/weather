@@ -82,9 +82,9 @@ class App extends React.Component {
         </div>
         <div id="video-bg"> 
             <video width="100%" height="auto" preload="auto" autoPlay="autoplay"
-            loop="loop" poster="./Nature-Sunset.jpg">
-                <source src="./Nature-Sunset.mp4" type="video/mp4"></source>
-                <source src="./Nature-Sunset.webm" type="video/webm"></source>
+            loop="loop" poster="./assets/Nature-Sunset.jpg">
+                <source src="./assets/Nature-Sunset.mp4" type="video/mp4"></source>
+                <source src="./assets/Nature-Sunset.webm" type="video/webm"></source>
             </video>
         </div>
       </div>

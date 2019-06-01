@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './components/form';
 import Weather from './components/weather';
 import Info from './components/info';
-import './App.css';
+import './App.scss';
 
 const API_KEY = "9fbef5c75dc20326b5b5cde381dd1023";
 
@@ -38,7 +38,11 @@ class App extends React.Component {
         let sunset = data.sys.sunset;
         let date = new Date();
         date.setTime(sunset);
-        let sunset_date = date.getHours() +  ":" + date.getMinutes() + ":" + date.getSeconds();
+        const currHours = date.getHours();
+        const currMinutes = date.getMinutes();
+        const currSeconds = date.getSeconds();
+        let sunset_date = ('0' + currHours).slice(-2) + ' часа ' + ('0' + (currMinutes)).slice(-2) + ' минут ' + ('0' + (currSeconds)).slice(-2) + " секунд";
+        //let sunset_date = currHours + ":" + currMinutes + ":" + currSeconds;
   
         this.setState({
           temp: data.main.temp,
@@ -63,17 +67,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Info/>
-        <Form weatherMethod={this.getWeather}/>
-        <Weather 
-          temp={this.state.temp}
-          city={this.state.city}
-          country={this.state.country}
-          pressure={this.state.pressure}
-          sunset={this.state.sunset}
-          error={this.state.error}
-        />
+      <div className="rootDiv">
+        <div id="elements">
+          <Info/>
+          <Form weatherMethod={this.getWeather}/>
+          <Weather 
+            temp={this.state.temp}
+            city={this.state.city}
+            country={this.state.country}
+            pressure={this.state.pressure}
+            sunset={this.state.sunset}
+            error={this.state.error}
+          />
+        </div>
+        <div id="video-bg"> 
+            <video width="100%" height="auto" preload="auto" autoPlay="autoplay"
+            loop="loop" poster="./Nature-Sunset.jpg">
+                <source src="./Nature-Sunset.mp4" type="video/mp4"></source>
+                <source src="./Nature-Sunset.webm" type="video/webm"></source>
+            </video>
+        </div>
       </div>
     );
   }

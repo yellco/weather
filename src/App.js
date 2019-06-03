@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/form';
 import Weather from './components/weather';
 import Info from './components/info';
+import Time from './components/time';
 import './App.scss';
 
 const API_KEY = "9fbef5c75dc20326b5b5cde381dd1023";
@@ -10,7 +11,7 @@ class App extends React.Component {
 
   state = {
     temp: undefined,
-    city: undefined, 
+    city: undefined,
     country: undefined,
     pressure: undefined,
     sunset: undefined,
@@ -28,7 +29,7 @@ class App extends React.Component {
       if (data.hasOwnProperty("message")) {
         this.setState({
           temp: undefined,
-          city: undefined, 
+          city: undefined,
           country: undefined,
           pressure: undefined,
           sunset: undefined,
@@ -43,7 +44,7 @@ class App extends React.Component {
         const currSeconds = date.getSeconds();
         let sunset_date = ('0' + currHours).slice(-2) + ' часа ' + ('0' + (currMinutes)).slice(-2) + ' минут ' + ('0' + (currSeconds)).slice(-2) + " секунд";
         //let sunset_date = currHours + ":" + currMinutes + ":" + currSeconds;
-  
+
         this.setState({
           temp: data.main.temp,
           city: data.name,
@@ -56,7 +57,7 @@ class App extends React.Component {
     } else {
       this.setState({
         temp: undefined,
-        city: undefined, 
+        city: undefined,
         country: undefined,
         pressure: undefined,
         sunset: undefined,
@@ -71,7 +72,7 @@ class App extends React.Component {
         <div id="elements">
           <Info/>
           <Form weatherMethod={this.getWeather}/>
-          <Weather 
+          <Weather
             temp={this.state.temp}
             city={this.state.city}
             country={this.state.country}
@@ -79,12 +80,14 @@ class App extends React.Component {
             sunset={this.state.sunset}
             error={this.state.error}
           />
+          <Time/>
         </div>
-        <div id="video-bg"> 
+
+        <div id="video-bg">
             <video width="100%" height="auto" preload="auto" autoPlay="autoplay"
-            loop="loop" poster="./assets/Nature-Sunset.jpg">
-                <source src="./assets/Nature-Sunset.mp4" type="video/mp4"></source>
-                <source src="./assets/Nature-Sunset.webm" type="video/webm"></source>
+            loop="loop" poster="Nature-Sunset.jpg">
+                <source src="Nature-Sunset.mp4" type="video/mp4"></source>
+                <source src="Nature-Sunset.webm" type="video/webm"></source>
             </video>
         </div>
       </div>

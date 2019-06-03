@@ -74,7 +74,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="rootDiv">
-        <div id="elements">
+        <div id="elements" className="mainblock main">
           <Info/>
           <Form weatherMethod={this.getWeather}/>
           <Weather
@@ -85,9 +85,10 @@ class App extends React.Component {
             sunset={this.state.sunset}
             error={this.state.error}
           />
+        </div>
+        <div className="mainblock">
           <Time/>
         </div>
-
         <div id="video-bg">
             <video width="100%" height="auto" preload="auto" autoPlay="autoplay"
             loop="loop" poster={bg}>

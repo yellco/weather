@@ -16,7 +16,7 @@ export default class App extends Component {
     render() {
         return (
             <div className="App" style={timeClass}>
-                <h2>{this.state.time}</h2>
+                {this.state.time}
             </div>
         );
     }
@@ -32,8 +32,9 @@ export default class App extends Component {
 
 const timeClass = {
     width: "auto",
-    fontSize: "40px",
+    fontSize: "70px",
     margin: "30px auto",
     boxSizing: "border-box",
-    textAlign: "center"
+    textAlign: "center",
+    fontWeight: "bold"
 }

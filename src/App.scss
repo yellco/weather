@@ -7,7 +7,7 @@
     width: auto;
     border-radius: 60px;
     padding:20px;
-    min-height: 500px;
+    height: auto;
     max-width: 500px;
     margin: 0 auto;
     margin-top:100px;
@@ -16,11 +16,12 @@
     form {
       display: flex;
       justify-content: center;
-  
+      margin-bottom: 100px;
+
       input {
         width: 300px;
       }
-  
+
       button{
         width:30px;
         height:30px;
@@ -32,14 +33,14 @@
         cursor: pointer;
       }
     }
-  
+
     .info {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      text-align: center;  
+      text-align: center;
     }
-  
+
     .weather {
       display: flex;
       justify-content: center;
@@ -53,21 +54,21 @@
     left: 0;
     overflow: hidden;
     z-index: 1;
-    background: url(./Nature-Sunset.jpg) no-repeat #94a233;
+    background: url(./assets/Nature-Sunset.jpg) no-repeat #94a233;
     background-size: cover;
   }
-  
+
   #video-bg > video {
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
     width: auto;
-    height: auto; 
+    height: auto;
   }
-  
+
   @supports (object-fit: cover) {
      #video-bg > video {
          top: 0;

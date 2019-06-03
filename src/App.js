@@ -3,6 +3,11 @@ import Form from './components/form';
 import Weather from './components/weather';
 import Info from './components/info';
 import Time from './components/time';
+
+import bg from './assets/Nature-Sunset.jpg';
+import bgVideoMp4 from './assets/Nature-Sunset.mp4';
+import bgVideoWebm from './assets/Nature-Sunset.webm';
+
 import './App.scss';
 
 const API_KEY = "9fbef5c75dc20326b5b5cde381dd1023";
@@ -85,9 +90,9 @@ class App extends React.Component {
 
         <div id="video-bg">
             <video width="100%" height="auto" preload="auto" autoPlay="autoplay"
-            loop="loop" poster="Nature-Sunset.jpg">
-                <source src="Nature-Sunset.mp4" type="video/mp4"></source>
-                <source src="Nature-Sunset.webm" type="video/webm"></source>
+            loop="loop" poster={bg}>
+                <source src={bgVideoWebm} type="video/webm"></source>
+                <source src={bgVideoMp4} type="video/mp4"></source>
             </video>
         </div>
       </div>

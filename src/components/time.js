@@ -31,7 +31,7 @@ export default class App extends Component {
 }
 
 const timeClass = {
-    width: "300px",
+    width: "auto",
     fontSize: "40px",
     margin: "30px auto",
     boxSizing: "border-box",

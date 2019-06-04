@@ -88,16 +88,17 @@ class App extends React.Component {
             sunset={this.state.sunset}
             error={this.state.error}
           />
+        </div>
+        <div className="mainblock rightblock">
+          <Time/>
           <InfiniteCalendar
-            width={200}
+            className="calendar"
+            width={400}
             height={300}
             selected={new Date()}
             disabledDays={[0,6]}
             minDate={new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - 7)}
           />
-        </div>
-        <div className="mainblock">
-          <Time/>
         </div>
         <div id="video-bg">
             <video width="100%" height="auto" preload="auto" autoPlay="autoplay"

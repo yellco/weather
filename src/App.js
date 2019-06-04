@@ -3,6 +3,8 @@ import Form from './components/form';
 import Weather from './components/weather';
 import Info from './components/info';
 import Time from './components/time';
+import InfiniteCalendar from 'react-infinite-calendar';
+import 'react-infinite-calendar/styles.css';
 
 import bg from './assets/Nature-Sunset.jpg';
 import bgVideoMp4 from './assets/Nature-Sunset.mp4';
@@ -31,6 +33,8 @@ class App extends React.Component {
       const url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
       const data = await url.json();
 
+      // https://github.com/clauderic/react-infinite-calendar
+
       if (data.hasOwnProperty("message")) {
         this.setState({
           temp: undefined,
@@ -48,7 +52,6 @@ class App extends React.Component {
         const currMinutes = date.getMinutes();
         const currSeconds = date.getSeconds();
         let sunset_date = ('0' + currHours).slice(-2) + ' часа ' + ('0' + (currMinutes)).slice(-2) + ' минут ' + ('0' + (currSeconds)).slice(-2) + " секунд";
-        //let sunset_date = currHours + ":" + currMinutes + ":" + currSeconds;
 
         this.setState({
           temp: data.main.temp,
@@ -84,6 +87,13 @@ class App extends React.Component {
             pressure={this.state.pressure}
             sunset={this.state.sunset}
             error={this.state.error}
+          />
+          <InfiniteCalendar
+            width={200}
+            height={300}
+            selected={new Date()}
+            disabledDays={[0,6]}
+            minDate={new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - 7)}
           />
         </div>
         <div className="mainblock">

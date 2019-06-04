@@ -9,6 +9,7 @@ import 'react-infinite-calendar/styles.css';
 import bg from './assets/Nature-Sunset.jpg';
 import bgVideoMp4 from './assets/Nature-Sunset.mp4';
 import bgVideoWebm from './assets/Nature-Sunset.webm';
+import settingsIcon from './assets/settings.png';
 
 import './App.scss';
 
@@ -77,6 +78,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="rootDiv">
+        <div className="header">
+          <img src={settingsIcon} alt=""></img>
+        </div>
         <div id="elements" className="mainblock main">
           <Info/>
           <Form weatherMethod={this.getWeather}/>

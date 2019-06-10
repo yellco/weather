@@ -12,10 +12,22 @@ import bgVideoWebm from './assets/Nature-Sunset.webm';
 import settingsIcon from './assets/settings.png';
 
 import './App.scss';
+import Popup from './components/popup';
 
 const API_KEY = "9fbef5c75dc20326b5b5cde381dd1023";
 
 class App extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = { showPopup: false };
+    }
+
+    togglePopup() {
+      this.setState({
+          showPopup: !this.state.showPopup
+      });
+    }
 
   state = {
     temp: undefined,
@@ -25,6 +37,12 @@ class App extends React.Component {
     sunset: undefined,
     error: undefined
   }
+
+  // togglePopup = () => {
+  //   this.setState({
+  //     showPopup: !this.state.showPopup
+  //   });
+  // }
 
   getWeather = async (e) => {
     e.preventDefault();
@@ -78,8 +96,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="rootDiv">
+        {this.state.showPopup ?
+        <Popup
+          text='Click "Close Button" to hide popup'
+          closePopup={this.togglePopup.bind(this)}
+        />
+        : null
+        }
         <div className="header">
-          <img src={settingsIcon} alt=""></img>
+          <img src={settingsIcon} alt="" onClick={this.togglePopup.bind(this)}></img>
         </div>
         <div id="elements" className="mainblock main">
           <Info/>
